@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Liste des biens immobiliers en base de données</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Titre</th>
+            <th>Surface</th>
+            <th>Pièces</th>
+            <th>Prix</th>
+            <th>Lieu</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for asset in assets %}
+            <tr>
+                <th>{{ asset.id }}</th>
+                <th>{{ asset.title }}</th>
+                <th>{{ asset.area }}</th>
+                <th>{{ asset.rooms }}</th>
+                <th>{{ asset.value }}</th>
+                <th>{{ asset.zipcode }} {{ asset.city }}</th>
+                <th><a href="{{ base_path ~ '/asset/' ~ asset.id }}">Voir le bien</a></th>
+            </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+
+{% endblock %}

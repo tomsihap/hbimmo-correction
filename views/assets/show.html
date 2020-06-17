@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<a href="{{ base_path ~ '/asset' }}">< Retour à la liste des biens</a>
+<div class="card">
+    <div class="card-header">{{ asset.title }} ({{asset.zipcode}} {{asset.city}})</div>
+    <div class="card-body">
+        <ul>
+            <li><strong>Surface :</strong> {{ asset.area }}</li>
+            <li><strong>Pièces :</strong> {{ asset.rooms }}</li>
+            <li><strong>Prix :</strong> {{ asset.value }}</li>
+        </ul>
+    </div>
+</div>
+
+<hr>
+
+<h2>Ajouter un message</h2>
+
+<form action="{{ base_path ~ '/contact' }}" method="post">
+
+    <input type="hidden" name="asset_id" value="{{ asset.id }}">
+
+	<div class="form-group">
+		<label for="formFirstname">Prénom</label>
+		<input id="formFirstname" type="text" class="form-control" name="firstname">
+	</div>
+
+    <div class="form-group">
+		<label for="formLastname">Nom</label>
+		<input id="formLastname" type="text" class="form-control" name="lastname">
+	</div>
+
+    <div class="form-group">
+        <label for="formEmail">Adresse e-mail</label>
+        <input id="formEmail" type="text" class="form-control" name="email">
+    </div>
+
+    <div class="form-group">
+        <label for="formMessage">Message</label>
+        <textarea id="formMessage" class=" form-control" name="message"></textarea>
+    </div>
+
+	<button class="btn btn-success">Créer le message</button>
+</form>
+
+<hr>
+
+<h2>Contacts reçus :</h2>
+
+{% for contact in asset.contacts %}
+        <div class="card mb-2">
+        <div class="card-body">
+            <ul>
+                <li><strong>Envoyé par :</strong> {{ contact.firstname }} {{ contact.lastname }}</li>
+                <li><strong>Email :</strong> {{ contact.email }}</li>
+                <li><strong>Message :</strong> {{ contact.message }}</li>
+            </ul>
+        </div>
+    </div>
+{% endfor %}
+
+{% endblock %}

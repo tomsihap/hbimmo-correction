@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Ajouter un bien immobilier</h1>
+
+<form action="{{ base_path ~ '/asset' }}" method="post">
+
+    <div class="form-group">
+        <label for="formTitle">Titre</label>
+        <input id="formTitle" type="text" class="form-control" name="title">
+    </div>
+
+    <div class="form-group">
+        <label for="formValue">Valeur</label>
+        <div class="input-group">
+            <input id="formValue" type="number" class="form-control" name="value">
+            <div class="input-group-append">
+                <div class="input-group-text">€</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="formArea">Surface</label>
+
+        <div class="input-group">
+            <input id="formArea" type="number" class="form-control" name="area">
+            <div class="input-group-append">
+                <div class="input-group-text">m2</div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="form-group">
+        <label for="formRooms">Pièces</label>
+        <div class="input-group">
+            <input id="formRooms" type="number" class="form-control" name="rooms">
+            <div class="input-group-append">
+                <div class="input-group-text">pièces</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="formZipcode">Code postal</label>
+        <input id="formZipcode" type="text" class="form-control" name="zipcode">
+    </div>
+
+
+    <div class="form-group">
+        <label for="formCity">Ville</label>
+        <input id="formCity" type="text" class="form-control" name="city">
+    </div>
+
+    <button class="btn btn-success">Créer le bien</button>
+
+
+</form>
+
+
+{% endblock %}

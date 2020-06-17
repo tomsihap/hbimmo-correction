@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+	<div class="jumbotron">
+		<h1 class="display-3">Votre espace de gestion HB Immo</h1>
+		<p class="lead">Bienvenue dans votre dashboard.</p>
+		<hr class="my-2">
+		<p class="lead">
+			<a class="btn btn-primary btn-lg" href="{{ base_path ~ '/asset' }}" role="button">Consulter les offres en ligne</a>
+			<a class="btn btn-secondary btn-lg" href="{{ base_path ~ '/asset/create' }}" role="button">Ajouter une offre</a>
+		</p>
+	</div>
+
+{% endblock %}
